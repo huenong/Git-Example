@@ -1,47 +1,35 @@
-## Git-Example
-This repo is to store some lab with Git
+## Câu 1: Git, GitHub
 
-### Lab 01: Install Git
+HueNT15: https://github.com/huenong/Git-Example  
 
-- Install Git on Ubuntu
+Họ và tên: Nông Thị Huệ
 
-```
-sudo apt update
-sudo apt install git -y
-git --version
-```
+Account: HueNT15
 
-- Install Git on CentOS
+Đơn vị: PID
 
-```
-sudo yum check-update
-sudo yum install git -y
-git --version
-```
+## Câu 2: Docker
+1. Create Dockerfile:
 
-### Lab 02: Configuration
+FROM tomcat:jdk8-openjdk-slim
 
-- Configure username, email
+LABEL user=HueNT15
 
-```
-git config --global user.name <User Name>
-git config --global user.email <Email>
-```
+RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
-- Configure using Vim as editor
+COPY ./ROOT.war /usr/local/tomcat/webapps/
 
-```
-git config --global core.editor “vim”
-git config --global push.default simple
-```
+--> docker_Image: 1564ebd53562
 
-### Lab 03: First commit
+2. Create Nerwork:
 
-- Workflow:
-  - Fork a remote repo to Github private
-  - Clone the repo
-  - Edit files
-  - Commit and push to Github
+docker network create -d bridge --subnet 10.10.20.0/24 devops_test
+
+3. Khởi tạo container từ image, network vừa tạo.
+
+docker run --network=devops_test -itd 1564ebd53562
 
 
-### Lab 04: 
+## Câu 3: Pipeline Jenkins
+
+https://jenkins.learn.akawork.io/job/HueNT15/job/codestar-demo-huent15/
